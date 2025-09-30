@@ -1,0 +1,26 @@
+// Bone Age Clustering Pipeline
+digraph {
+	A [label="1D Dataset (CSV)
+boneage, gender..."]
+	B [label="Preprocessing & Scaling"]
+	C [label="K-Means Clustering (2)
+→ CSV Clusters"]
+	D [label="2D Dataset (Images)
+X-ray images"]
+	E [label="Preprocessing & Resize"]
+	F [label="PCA Feature Reduction"]
+	G [label="K-Means Clustering (4)
+→ Image Clusters"]
+	H [label="Merge Clusters on Common ID"]
+	I [label="Correlation Analysis (Cramér's V, NMI, ARI)"]
+	J [label="Insights: Relationship between 1D & 2D clusters"]
+	A -> B
+	B -> C
+	D -> E
+	E -> F
+	F -> G
+	C -> H
+	G -> H
+	H -> I
+	I -> J
+}
